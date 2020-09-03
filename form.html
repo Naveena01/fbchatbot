@@ -6,22 +6,24 @@
 	<link rel="stylesheet" type="text/css" href="risk.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<script src="risk.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	
 </head>
 <body>
 	
 	<div>
 		<h1 class="top"><u>Covid Risk Calculator</u></h1>
 	</div>
+	<form action="/riskpredictor" method="POST">
 	<div class="row A">
 	<div class="col-md-6">
 		<h3 class="nav">X-Ray Abnormality:</h3>
 	</div>	
     <div class="col-md-6">
-      <div class="btn-group btn-toggle but"> 
-        <button class="btn btn-lg btn-default">Yes</button>
-        <button class="btn btn-lg btn-primary active">No</button>
-      </div>
+      <div class="custom-control custom-switch">
+  <input name="taskname" type="checkbox" class="custom-control-input" id="customSwitch1">
+  <label class="custom-control-label" for="customSwitch1">Yes</label>
+</div>
       <hr>
     </div>
   </div>
@@ -33,19 +35,19 @@
  		<h5 class="nav">(in years)</h5>
  	</div>
  	<div class="col-md-6">
- 		 <input class="form-control form-control-lg len" type="text" placeholder=".form-control-lg">
+ 		 <input name="age" class="form-control form-control-lg len" type="text" placeholder=".form-control-lg", id="customSwitch2">
  	</div>
  </div>
 
-     <div class="row A">
+  <div class="row A">
 	<div class="col-md-6">
 		<h3 class="nav">Hemoptysis:</h3>
 	</div>	
     <div class="col-md-6">
-      <div class="btn-group btn-toggle but"> 
-        <button class="btn btn-lg btn-default">Yes</button>
-        <button class="btn btn-lg btn-primary active">No</button>
-      </div>
+      <div class="custom-control custom-switch">
+  <input name="hemo" type="checkbox" class="custom-control-input" id="customSwitch3">
+  <label class="custom-control-label" for="customSwitch3">Yes</label>
+</div>
       <hr>
     </div>
   </div>
@@ -55,10 +57,10 @@
 		<h3 class="nav">Dyspnea:</h3>
 	</div>	
     <div class="col-md-6">
-      <div class="btn-group btn-toggle but"> 
-        <button class="btn btn-lg btn-default">Yes</button>
-        <button class="btn btn-lg btn-primary active">No</button>
-      </div>
+      <div class="custom-control custom-switch">
+  <input name="dys" type="checkbox" class="custom-control-input" id="customSwitch4">
+  <label class="custom-control-label" for="customSwitch4">Yes</label>
+</div>
       <hr>
     </div>
   </div>
@@ -68,10 +70,10 @@
 		<h3 class="nav">Unconsciousness:</h3>
 	</div>	
     <div class="col-md-6">
-      <div class="btn-group btn-toggle but"> 
-        <button class="btn btn-lg btn-default">Yes</button>
-        <button class="btn btn-lg btn-primary active">No</button>
-      </div>
+      <div class="custom-control custom-switch">
+  <input name="uncon" type="checkbox" class="custom-control-input" id="customSwitch5">
+  <label class="custom-control-label" for="customSwitch5">Yes</label>
+</div>
       <hr>
     </div>
   </div>
@@ -82,7 +84,7 @@
  		<h5 class="nav">(Includes COPD, hypertension, diabetes, coronary heart disease, chronic heart disease, chronic kidney disease, cancer, cerebral vascular disease, Hepatitis B, and immunodeficiency)</h5>
  	</div>
  	<div class="col-md-6">
- 		 <input class="form-control form-control-lg len" type="text" placeholder=".form-control-lg">
+ 		 <input name="noc" class="form-control form-control-lg len" type="text" placeholder=".form-control-lg", id="customSwitch6">
  	</div>
  </div>
 
@@ -91,19 +93,65 @@
 		<h3 class="nav">Cancer History:</h3>
 	</div>	
     <div class="col-md-6">
-      <div class="btn-group btn-toggle but"> 
-        <button class="btn btn-lg btn-default">Yes</button>
-        <button class="btn btn-lg btn-primary active">No</button>
-      </div>
+      <div class="custom-control custom-switch">
+  <input name="cancer" type="checkbox" class="custom-control-input" id="customSwitch7">
+  <label class="custom-control-label" for="customSwitch7">Yes</label>
+</div>
       <hr>
     </div>
   </div>
 
+  <div class="row A">
+    <div class="col-md-6">
+      <h3 class="nav">Neutrophil-Lymphocyte ratio</h3>
+    </div>
+    <div class="col-md-6">
+                <div class="input-group">
+                    <input name="nlr" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="customSwitch8">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="button">NLR</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+    <div class="row A">
+    <div class="col-md-6">
+      <h3 class="nav">Lactate Dehydrogenase</h3>
+    </div>
+    <div class="col-md-6">
+                <div class="input-group">
+                    <input name="ld" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="customSwitch9">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="button">U/L</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+    <div class="row A">
+    <div class="col-md-6">
+      <h3 class="nav">Direct Bilirubin</h3>
+    </div>
+    <div class="col-md-6">
+                <div class="input-group">
+                    <input name="db" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="customSwitch10">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="button">mg/dL</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+
    <div class="row">
    	    <button type="submit" class="btn btn-primary mb-2 sub">Submit</button>
    </div>
+</form>
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>
 </html>
