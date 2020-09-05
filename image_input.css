@@ -1,0 +1,22 @@
+.form{
+	margin-top: 100px;
+	margin-left: 500px;
+	border-style: solid;
+	padding-top: 50px;
+	padding-left: 50px;
+	padding-bottom: 50px;
+	margin-right: 450px;
+	background-color: cornsilk;
+}
+.submit{
+	margin-left: 200px;
+	background-color: lightblue;
+	margin-top: 50px;
+}
+.heading{
+	font-size: 50px;
+	text-align: center;
+	color: purple;
+	margin-top: 50px;
+
+}
